@@ -186,11 +186,29 @@
   </div>
 </section>
 
+<section class="hero teaser" style="background-color: white;">
+  <div class="container is-max-desktop" style="background-color: white;">
+    <div class="hero-body" style="background-color: white;">
+      <video id="teaser" autoplay muted loop playsinline height="100%"
+             style="width: 100%; height: auto; display: block; background-color: white; transform: scaleX(1.002); transform-origin: left;">
+        <source src="./static/videos/Real_Drone_Yosemite_2000bitrate.mp4"
+                type="video/mp4">
+      </video>
+
+      <h2 class="subtitle has-text-centered">
+        <span class="dnerf">Search-TTA</span> in simulated Yosemite Valley environment (colored path = simulated path).
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+
 <!-- <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
       <video id="teaser" autoplay muted loop playsinline height="100%">
-        <source src="./static/videos/teaser.mp4"
+        <source src="./static/videos/OLD/teaser.mp4"
                 type="video/mp4">
       </video>
       <h2 class="subtitle has-text-centered">
@@ -264,40 +282,21 @@
 <section class="section">
   <div class="container is-max-desktop">
     <!-- Abstract. -->
-<!--     <div class="columns is-centered has-text-centered">
+    <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            We present the first method capable of photorealistically reconstructing a non-rigidly
-            deforming scene using photos/videos captured casually from mobile phones.
+            To perform autonomous visual search for environmental monitoring, a robot may leverage satellite imagery as a prior map. This can help inform coarse, high level search and exploration strategies, even when such images lack sufficient resolution to allow fine-grained, explicit visual recognition of targets. However, there are some challenges to overcome with using satellite images to direct visual search. For one, targets that are unseen in satellite images are underrepresented  in most existing datasets, and thus vision models trained on these datasets fail to reason effectively based on indirect visual cues. Furthermore, approaches which leverage large Vision Language Models (VLMs) for generalization may yield inaccurate outputs due to hallucination, leading to inefficient search. 
+            <!-- (compared to real life) -->
           </p>
           <p>
-            Our approach augments neural radiance fields
-            (NeRF) by optimizing an
-            additional continuous volumetric deformation field that warps each observed point into a
-            canonical 5D NeRF.
-            We observe that these NeRF-like deformation fields are prone to local minima, and
-            propose a coarse-to-fine optimization method for coordinate-based models that allows for
-            more robust optimization.
-            By adapting principles from geometry processing and physical simulation to NeRF-like
-            models, we propose an elastic regularization of the deformation field that further
-            improves robustness.
-          </p>
-          <p>
-            We show that <span class="dnerf">Nerfies</span> can turn casually captured selfie
-            photos/videos into deformable NeRF
-            models that allow for photorealistic renderings of the subject from arbitrary
-            viewpoints, which we dub <i>"nerfies"</i>. We evaluate our method by collecting data
-            using a
-            rig with two mobile phones that take time-synchronized photos, yielding train/validation
-            images of the same pose at different viewpoints. We show that our method faithfully
-            reconstructs non-rigidly deforming scenes and reproduces unseen views with high
-            fidelity.
+            To address these challenges, we introduce <span class="dnerf">Search-TTA</span>, a multimodal test-time adaptation framework that can accept text and/or image input. First, we pretrain a remote sensing image encoder to align with CLIP’s visual encoder to output probability distributions of target presence used for visual search. Second, our framework dynamically refines CLIP’s predictions during search using a test-time adaptation mechanism. Through a feedback loop inspired by Spatial Poisson Point Processes, gradient updates (weighted by uncertainty) are used to correct (potentially inaccurate) predictions and improve search performance. To validate <span class="dnerf">Search-TTA's</span> performance, we curate a visual search dataset based on internet-scale ecological data. We find that <span class="dnerf">Search-TTA</span> improves planner performance by up to 9.7%, particularly in cases with poor initial CLIP predictions. It also achieves comparable performance to state-of-the-art VLMs. Finally, we deploy <span class="dnerf">Search-TTA</span> on a real UAV via hardware-in-the-loop testing, by simulating its operation within a large-scale simulation.
+            <!-- that provides onboard sensing. -->
           </p>
         </div>
       </div>
-    </div> -->
+    </div>
     <!--/ Abstract. -->
 
     <!-- Paper video. -->
@@ -313,6 +312,83 @@
     <!--/ Paper video. -->
   </div>
 </section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Approach</h2>
+        <div class="content has-text-justified">
+          <p>
+              <span class="dnerf">Search-TTA</span> is a multimodal test-time adaptation framework that
+              refines a VLM’s (potentially inaccurate) predictions online, using the agent’s measurements during
+              visual search. In this work, we use CLIP as our lightweight VLM, and first align a satellite image encoder
+              to the same representation space as a vision encoder through patch-level contrastive learning. This
+              enables the satellite image encoder to generate a score map by taking the cosine similarity between
+              its per-patch embeddings and the embeddings of other modalities (e.g., text, ground image). We
+              then introduce a novel test-time adaptation feedback mechanism to refine CLIP’s predictions based
+              on new measurements. To achieve this, we take inspiration from Spatial Poisson Point Processes to
+              perform gradient updates to the satellite image encoder based on patches where measurements were
+              taken. We also enhance the loss function with an uncertainty-driven weighting scheme to ensure
+              stable gradient updates, especially at the beginning of the search process.
+          </p>
+          <div style="text-align: center;">
+            <img src="./static/images/tta_architecture_v5.png" width="80%" />
+          </div>
+        </div>
+        <br />
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Dataset</h2>
+        <div class="content has-text-justified">
+          <p>
+            To validate <span class="dnerf">Search-TTA's</span>
+            performance, we curate a dataset which comprises satellite images tagged with
+            the coordinates of multiple unseen taxonomic targets using internet-scale ecological data. More
+            specifically, we use Sentinel-2 level 2A satellite images tagged with coordinates from the iNat-
+            2021 dataset. One advantage of using ecological data is the hierarchical structure of taxonomic
+            labels (seven distinct tiers), which facilitates baseline evaluation across various levels of specificity.
+          </p>
+          <div style="text-align: center;">
+            <img src="./static/images/visual_search_ds_examples_v4.png" width="80%" />
+          </div>
+        </div>
+        <br />
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Examples</h2>
+        <div class="content has-text-justified">
+          <p>
+            Coming Soon...
+          </p>
+          <!-- <div style="text-align: center;">
+            <img src="./static/images/visual_search_ds_examples_v4.png" width="80%" />
+          </div> -->
+        </div>
+        <br />
+      </div>
+    </div>
+  </div>
+</section>
+
 
 
 <section class="section">
@@ -359,7 +435,8 @@
     <!-- Animation. -->
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3">Animation</h2>
+        <h2 class="title is-3">Approach</h2>
+
 
         <!-- Interpolating. -->
 <!--         <h3 class="title is-4">Interpolating states</h3>
@@ -455,12 +532,14 @@
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@article{-,
-  author    = {-},
-  title     = {Search-TTA: A Multimodal Test-Time Adaptation Framework for Visual Search in the Wild},
-  journal   = {},
-  year      = {},
-}</code></pre>
+      <pre><code>Coming Soon!</code></pre>
+    <!-- <pre><code>@article{-,
+      author    = {-},
+      title     = {Search-TTA: A Multimodal Test-Time Adaptation Framework for Visual Search in the Wild},
+      journal   = {},
+      year      = {},
+    }
+    </code></pre> -->
   </div>
 </section>
 
