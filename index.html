@@ -283,7 +283,7 @@
             <!-- (compared to real life) -->
           </p>
           <p>
-            To address these challenges, we introduce <span class="dnerf">Search-TTA</span>, a multimodal test-time adaptation framework that can accept text and/or image input. First, we pretrain a remote sensing image encoder to align with CLIP’s visual encoder to output probability distributions of target presence used for visual search. Second, our framework dynamically refines CLIP’s predictions during search using a test-time adaptation mechanism. Through a feedback loop inspired by Spatial Poisson Point Processes, gradient updates (weighted by uncertainty) are used to correct (potentially inaccurate) predictions and improve search performance. To validate <span class="dnerf">Search-TTA's</span> performance, we curate a visual search dataset based on internet-scale ecological data. We find that <span class="dnerf">Search-TTA</span> improves planner performance by up to 9.7%, particularly in cases with poor initial CLIP predictions. It also achieves comparable performance to state-of-the-art VLMs. Finally, we deploy <span class="dnerf">Search-TTA</span> on a real UAV via hardware-in-the-loop testing, by simulating its operation within a large-scale simulation.
+            To address these challenges, we introduce <span class="dnerf">Search-TTA</span>, a multimodal test-time adaptation framework that can accept text and/or image input. First, we pretrain a remote sensing image encoder to align with CLIP’s visual encoder to output probability distributions of target presence used for visual search. Second, our framework dynamically refines CLIP’s predictions during search using a test-time adaptation mechanism. Through a feedback loop inspired by Spatial Poisson Point Processes, gradient updates (weighted by uncertainty) are used to correct (potentially inaccurate) predictions and improve search performance. To validate <span class="dnerf">Search-TTA's</span> performance, we curate a visual search dataset based on internet-scale ecological data. We find that <span class="dnerf">Search-TTA</span> <b>improves planner performance by up to 9.7%</b>, particularly in cases with poor initial CLIP predictions. It also achieves <b>comparable performance to state-of-the-art VLMs</b>. Finally, we deploy <span class="dnerf">Search-TTA</span> on a real UAV via hardware-in-the-loop testing, by simulating its operation within a large-scale simulation.
             <!-- that provides onboard sensing. -->
           </p>
         </div>
@@ -328,10 +328,10 @@
               <span class="dnerf">Search-TTA</span> is a multimodal test-time adaptation framework that
               refines a VLM’s (potentially inaccurate) predictions online, using the agent’s measurements during
               visual search. In this work, we use CLIP as our lightweight VLM, and first align a satellite image encoder
-              to the same representation space as a vision encoder through patch-level contrastive learning. This
+              to the same representation space as a vision encoder through <b>patch-level contrastive learning</b>. This
               enables the satellite image encoder to generate a score map by taking the cosine similarity between
               its per-patch embeddings and the embeddings of other modalities (e.g., text, ground image). We
-              then introduce a novel test-time adaptation feedback mechanism to refine CLIP’s predictions based
+              then introduce a <b>novel test-time adaptation feedback mechanism</b> to refine CLIP’s predictions based
               on new measurements. To achieve this, we take inspiration from Spatial Poisson Point Processes to
               perform gradient updates to the satellite image encoder based on patches where measurements were
               taken. We also enhance the loss function with an uncertainty-driven weighting scheme to ensure
@@ -365,6 +365,7 @@
             specifically, we use Sentinel-2 level 2A satellite images tagged with coordinates from the iNat-
             2021 dataset. One advantage of using ecological data is the hierarchical structure of taxonomic
             labels (seven distinct tiers), which facilitates baseline evaluation across various levels of specificity.
+            In total, our dataset offers <b>437k</b> training images <b>4k</b> validation images.
           </p>
           <div style="text-align: center;">
             <img src="./static/images/visual_search_ds_examples_v4.png" width="100%" />
