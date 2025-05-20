@@ -1,4 +1,4 @@
-# Nerfies
+# Search-TTA Public Website
 
 This is the repository that contains source code for the [Search-TTA website](https://search-tta.github.io).
 
