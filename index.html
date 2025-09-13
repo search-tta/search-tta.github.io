@@ -29,6 +29,53 @@
 
 <body>
 
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://derektan95.github.io">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          Related Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://sites.google.com/view/viking-release">
+            ViKiNG
+          </a>
+          <a class="navbar-item" href="https://arxiv.org/abs/2310.09689">
+            VAS
+          </a>
+          <a class="navbar-item" href="https://vishu26.github.io/taxabind/index.html">
+            Taxabind
+          </a>
+          <a class="navbar-item" href="https://github.com/dvlab-research/LISA">
+            LISA
+          </a>
+          <a class="navbar-item" href="https://github.com/marmotlab/ARiADNE">
+            ARiADNE
+          </a>
+          <a class="navbar-item" href="https://ir2-explore.github.io/">
+            IR2
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
 <section class="hero">
   <div class="hero-body"  style="padding-bottom: 0;">
     <div class="container is-max-desktop">
@@ -128,7 +175,7 @@
               </span> -->
               <!-- Code Link. -->
               <span class="link-block">
-                <a href="https://github.com/marmotlab/Search-TTA"
+                <a href="https://github.com/marmotlab/Search-TTA-VLN"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
@@ -180,7 +227,7 @@
     <div class="hero-body" style="background-color: white;">
       <video id="teaser" autoplay muted loop playsinline height="100%"
              style="width: 100%; height: auto; display: block; background-color: white; transform: scaleX(1.002); transform-origin: left;">
-        <source src="./media/videos/Real_Drone_Yosemite_1500bitrate.mp4"
+        <source src="./static/videos/Real_Drone_Yosemite_1500bitrate.mp4"
                 type="video/mp4">
       </video>
 
@@ -197,8 +244,8 @@
               <p class="is-size-5">
                 <strong>Search-TTA</strong> is a multimodal test-time adaptatation framework that <b>signifiantly corrects poor VLM predictions</b> 
                 due to domain mismatch or the lack of training data, 
-                given <b>various input modalities (e.g. image, text, sound)</b> and <b>planning methods</b>
-                to achieve efficient visual navigation and search.
+                given <b>various input modalities (e.g. image, text, sound)</b> and <b>planning methods (e.g. RL)</b>
+                to achieve efficient visual navigation and search <i>in-the-wild</i>.
               </p>
               <p class="is-size-5">
                 <strong>AVS-Bench</strong> is a visual search dataset based on internet-scale ecological data that contains up to <b>380k training and 8k validation satellite images</b>,
@@ -227,10 +274,10 @@
                 To address these challenges, we introduce <strong>Search-TTA</strong>, a multimodal test-time adaptation framework with a flexible plug-and-play interface <b>compatible with various input modalities (e.g. image, text, sound) and planning methods.</b>
                 First, we pretrain a satellite image encoder to align with CLIP's visual encoder to output probability distributions of target presence used for visual search.
                 Second, our framework dynamically refines CLIP’s predictions during search using a test-time adaptation mechanism.
-                Through a novel feedback loop inspired by <b>Spatial Poisson Point Processes</b>, uncertainty-weighted gradient updates are used to correct potentially inaccurate predictions and improve search performance.
+                Through a <b>novel feedback loop inspired by Spatial Poisson Point Processes</b>, uncertainty-weighted gradient updates are used to correct potentially inaccurate predictions and improve search performance.
                 To train and evaluate Search-TTA, we curate <strong>AVS-Bench</strong>, a visual search dataset based on internet-scale ecological data that contains up to <b>380k training and 8k validation images</b> (in- and out-domain).
-                We find that Search-TTA improves planner performance by up to 30.0%, particularly in cases with poor initial CLIP predictions due to limited training data. 
-                It also performs comparably with significantly larger VLMs, and achieves zero-shot generalization to unseen modalities.
+                We find that Search-TTA <b>improves planner performance by up to 30.0%</b>, particularly in cases with poor initial CLIP predictions due to limited training data. 
+                It also <b>performs comparably with significantly larger VLMs</b>, and achieves zero-shot generalization to unseen modalities.
                 Finally, we deploy Search-TTA on a real UAV via hardware-in-the-loop testing, by simulating its operation within a large-scale simulation that provides onboard sensing.
             </p>
           </div>
@@ -256,7 +303,7 @@
           </p>
           <h3>Search-TTA Framework</h3>
           <p class="has-text-centered">
-            <img src="./media/images/tta_architecture_v7.png" style="width: 90%;" alt="Search-TTA framework">
+            <img src="./static/images/tta_architecture_v7.png" style="width: 90%;" alt="Search-TTA framework">
           </p>
         </div>
       </div>
@@ -264,24 +311,21 @@
   </div>
 </section>
 
+
 <section class="section">
   <div class="container is-max-desktop">
-
-    <div class="columns is-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">AVS-Bench</h2>
+    <h2 class="title is-3">AVS-Bench</h2>
+    <div class="columns">
+      <div class="column">
         <div class="content has-text-justified">
           <p>
-            To validate <span class="dnerf">Search-TTA's</span>
-            performance, we curate a dataset which comprises satellite images tagged with
-            the coordinates of multiple unseen taxonomic targets using internet-scale ecological data. More
-            specifically, we use Sentinel-2 level 2A satellite images tagged with coordinates from the iNat-
-            2021 dataset. One advantage of using ecological data is the hierarchical structure of taxonomic
-            labels (seven distinct tiers), which facilitates baseline evaluation across various levels of specificity.
-            In total, our dataset offers <b>437k</b> training images <b>4k</b> validation images.
+            To validate <strong>Search-TTA</strong>, we curate <strong>AVS-Bench</strong>, a visual search dataset based on internet-scale ecological data.
+            It comprises Sentinel-2 level 2A satellite images with unseen taxonomic targets from the <b>iNat-2021</b> dataset, each tagged with ground-level image and taxonomic label (some with sound data).
+            One advantage of using ecological data is the hierarchical structure of taxonomic labels (seven distinct tiers), which facilitates baseline evaluation across various levels of specificity. 
+            <strong>AVS-Bench</strong> is diverse in geography and taxonomies to reflect <b>in-the-wild</b> scenarios.
+            Our dataset offers <b>380k</b> training images <b>8k</b> validation images (in- and out-domain).
           </p>
         </div>
-        <br />
       </div>
     </div>
 
@@ -320,63 +364,63 @@
       </div>
     </div>
 
-
   </div>
 </section>
+
 
 <section class="section">
   <div class="container is-max-desktop ">
     <h2 class="title is-3">Results</h2>
       <div class="custom-grey-box" style="margin-bottom:2rem;">
-        <h3 class="title is-4">Benchmarks</h3>
+        <h3 class="title is-4">Performance Analysis</h3>
         <div class="columns">
           <div class="column is-half has-text-centered">
-            <img src="exploration_length.webp" style="width:100%;"/>
-          <p class="is-size-5"><b>Autonomous Exploration</b></p>
+            <img src="./static/images/dataset_scaling_tta_gain_analysis.png" style="width:100%;"/>
+            <p class="is-size-5"><b>TTA Performance Gain with Pretraining Data</b></p>
           </div>
           <div class="column is-half has-text-centered">
-            <img src="navigation_length.webp" style="width:100%;"/>
-            <p class="is-size-5"><b>Point-Goal Navigation</b></p>
-          </div>
-        </div>
-        <div class="columns">
-          <div class="column is-half has-text-centered">
-            <img src="expcurve.webp" style="width:100%;"/>
-            <p class="is-size-5"><b>Zero-shot Generalization to KTH Floor Plan</b></p>
-          </div>
-          <div class="column is-half has-text-centered">
-            <img src="robustness.webp" style="width:100%;"/>
-            <p class="is-size-5"><b>Robustness to Random Start Positions</b></p>
+            <img src="./static/images/time_analysis.png" style="width:100%;"/>
+            <p class="is-size-5"><b>VLM Inference Time Analysis</b></p>
           </div>
         </div>
       </div>
 
-      <div class="content">
-        <h3 class="title is-4">Demos in Simulated Maps</h3>
-        <div class="has-text-centered" style="margin-bottom:1rem;">
-          <video controls style="width:100%;">
-            <source src="demo-explore.mp4" type="video/mp4">
-          </video>
-          <p class="is-size-5"><b>Exploration</b></p>
-        </div>
-        <div class="has-text-centered">
-          <video controls style="width:60%;">
-            <source src="demo-nav.mp4" type="video/mp4">
-          </video>
-          <p class="is-size-5"><b>Navigation</b></p>
-        </div>
-      </div>
-
-      <div class="content">
-        <h3 class="title is-4">Validation in Gazebo Environments</h3>
-        <div class="has-text-centered">
-          <img src="gazebo.webp" alt="Gazebo Scene" style="width:100%;"/>
+      <div class="custom-grey-box" style="margin-bottom:2rem;">
+        <h3 class="title is-4">Multimodality</h3>
+        <div class="columns">
+          <div class="columns">
+            <div class="column has-text-centered">
+              <img src="./static/images/multimodality_analysis.png" style="width:100%;"/>
+            <p class="is-size-5"><b>Emergent Alignment to Unseen Modalities</b></p>
+            </div>
+          </div>
         </div>
       </div>
   </div>
 </section>
 
 <section class="section">
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered">
+      <div class="column is-max-desktop">
+        <h2 class="title is-3">🤗 HuggingFace Demo</h2>
+        <div class="content has-text-justified">
+          <div class="publication-image" id="image-container-1">
+          <iframe
+            src="https://derektan95-search-tta-demo.hf.space" 
+            frameborder="0"
+            width="100%"
+            height="1500"
+          ></iframe>
+        </div>
+        <br />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- <section class="section">
   <div class="container is-max-desktop">
     <h2 class="title is-3">Related Links</h2>
     <div class="content">
@@ -391,20 +435,21 @@
       </p>
     </div>
   </div>
-</section>
+</section> -->
 
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop">
     <h2 class="title">BibTeX</h2>
     <pre>
-<code>@inproceedings{wang2025cogniplan,
-  author={Wang, Yizhuo and He, Haodong and Liang, Jingsong and Cao, Yuhong and Chakraborty, Ritabrata and Sartoretti, Guillaume},
-  title={CogniPlan: Uncertainty-Guided Path Planning with Conditional Generative Layout Prediction},
-  booktitle={Conference on Robot Learning},
-  year={2025},
-  organization={PMLR}
+<code>@inproceedings{tan2025searchtta,
+  title        = {Search-TTA: A Multimodal Test-Time Adaptation Framework for Visual Search in the Wild},
+  author       = {Derek Ming Siang Tan, Shailesh, Boyang Liu, Alok Raj, Qi Xuan Ang, Weiheng Dai, Tanishq Duhan, Jimmy Chiun, Yuhong Cao, Florian Shkurti, Guillaume Sartoretti},
+  booktitle    = {Conference on Robot Learning},
+  year         = {2025},
+  organization = {PMLR}
 }</code></pre></div>
 </section>
+
 
 <footer class="footer">
   <div class="container is-max-desktop">
