@@ -101,7 +101,10 @@ b {
 
 strong {
     font-family: "Nunito", sans-serif;
-    color: #a82297;
+    color: #228B22;
+    font-weight: bold;
+    text-shadow: 0px 0px 3px rgba(34,139,34,0.4);
+    /* color: #a82297; */
     /* color: #CB297B; */
 }
 
