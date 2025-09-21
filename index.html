@@ -278,7 +278,7 @@
                 Through a <b>novel feedback loop inspired by Spatial Poisson Point Processes</b>, uncertainty-weighted gradient updates are used to correct potentially inaccurate predictions and improve search performance.
                 To train and evaluate Search-TTA, we curate <strong>AVS-Bench</strong>, a visual search dataset based on internet-scale ecological data that contains up to <b>380k training and 8k validation images</b> (in- and out-domain).
                 We find that Search-TTA <b>improves planner performance by up to 30.0%</b>, particularly in cases with poor initial CLIP predictions due to limited training data. 
-                It also <b>performs comparably with significantly larger VLMs</b>, and achieves zero-shot generalization to unseen modalities.
+                It also <b>performs comparably with significantly larger VLMs</b>, and achieves <b>zero-shot generalization to unseen modalities</b>.
                 Finally, we deploy Search-TTA on a real UAV via hardware-in-the-loop testing, by simulating its operation within a large-scale simulation that provides onboard sensing.
             </p>
           </div>
@@ -309,6 +309,19 @@
         </div>
         <h2 class="subtitle has-text-centered">
           Search-TTA is compatible with different input modalities and planning methods.
+        </h2>
+
+        <div class="content has-text-justified" style="background-color: white;">
+          <h3>TTA Example</h3>
+          <video id="teaser" autoplay muted loop playsinline height="100%" preload="metadata"
+                poster="./static/images/search_tta_cover.webp"
+                style="margin-top: -10px; margin-bottom: -20px; width: 100%; height: auto; display: block; background-color: white; transform: scaleX(1.002); transform-origin: left;">
+            <source src="./static/videos/search_tta_turtle_example.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <h2 class="subtitle has-text-centered">
+          Regulated change in heatmap region probabilities given measurements collected.
         </h2>
       </div>
     </div>
@@ -429,22 +442,6 @@
   </div>
 </section>
 
-<!-- <section class="section">
-  <div class="container is-max-desktop">
-    <h2 class="title is-3">Related Links</h2>
-    <div class="content">
-      <p>
-        Some parts of this work are implemented based on <a href="https://github.com/marmotlab/large-scale-DRL-exploration">large-scale-DRL-exploration</a> 
-        and <a href="https://github.com/marmotlab/Context_Aware_Navigation">Context_Aware_Navigation</a>.<br>
-
-        The Gazebo experiments are conducted using the <a href="https://www.cmu-exploration.com/development-environment">CMU exploration environment</a>.<br>
-
-        Some excellent related works: <a href="https://www.cmu-exploration.com/tare-planner">TARE</a>, <a href="https://mapex-explorer.github.io/">MapEx</a>, 
-        <a href="https://github.com/marmotlab/ARiADNE-ROS-Planner">ARiADNE</a>.
-      </p>
-    </div>
-  </div>
-</section> -->
 
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop">
