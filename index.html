@@ -299,7 +299,7 @@
             In this work, we use <b>CLIP as our lightweight VLM</b>, and first align a satellite image encoder to the <b>same representation space</b> as a vision encoder through patch-level contrastive learning.
             This enables the satellite image encoder to generate a score map by taking the cosine similarity between its per-patch embeddings and the embeddings of other modalities (e.g., ground image, text, sound). 
             We then introduce a novel test-time adaptation feedback mechanism to refine CLIP’s predictions.
-            To achieve this, we take inspiration from Spatial Poisson Point Processes to perform <b>gradient updates</b> to the satellite image encoder based on past measurements.
+            To achieve this, we take inspiration from <b>Spatial Poisson Point Processes to perform gradient updates</b> to the satellite image encoder based on past measurements.
             We also enhance the loss function with an <b>uncertainty-driven weighting scheme that acts as a regularizer</b> to ensure stable gradient updates. 
           </p>
         </div>
