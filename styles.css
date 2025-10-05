@@ -125,3 +125,7 @@ strong {
 .results-carousel video {
   margin: 0;
 }
+
+.link-block a {
+    margin: 5px 0;
+}
