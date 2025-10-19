@@ -129,3 +129,10 @@ strong {
 .link-block a {
     margin: 1px 0;
 }
+
+/* Renders a colour emoji where an <i> tag is expected */
+.i-emoji-hug::before{
+  content: "🤗";
+  font-family: "Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif;
+  font-style: normal;   /* cancel the default italic */
+}
