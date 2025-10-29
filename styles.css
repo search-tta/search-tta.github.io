@@ -136,3 +136,15 @@ strong {
   font-family: "Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif;
   font-style: normal;   /* cancel the default italic */
 }
+
+.school-logos {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+@media (min-width: 992px) {
+  .school-logos {
+    width: 70%;
+  }
+}
