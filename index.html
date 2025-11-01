@@ -281,7 +281,7 @@
                 First, we pretrain a satellite image encoder to align with CLIP's visual encoder to output probability distributions of target presence used for visual search.
                 <!-- Second, our framework dynamically refines CLIP’s predictions during search using a test-time adaptation mechanism. -->
                 <!-- Through a <b>novel feedback loop inspired by Spatial Poisson Point Processes</b>, uncertainty-weighted gradient updates are used to correct potentially inaccurate predictions and improve search performance. -->
-                Second, our framework dynamically refines CLIP’s predictions during search using a test-time adaptation mechanism that performs uncertainty-weighted gradient updates online. 
+                Second, our framework dynamically refines CLIP’s predictions during search using a test-time adaptation mechanism that performs <b>uncertainty-weighted gradient updates online</b>. 
                 To train and evaluate Search-TTA, we curate <strong>AVS-Bench</strong>, a visual search dataset based on internet-scale ecological data that contains <b>380k images</b>. <!-- up to <b>380k training and 8k validation images</b> (in- and out- domain). -->
                 <!-- We find that Search-TTA <b>improves planner performance by up to 30.0%</b>, particularly in cases with poor initial CLIP predictions due to limited training data. -->
                 We find that Search-TTA <b>improves planner performance by up to 30.0%</b>, particularly in cases with poor initial CLIP predictions due to OOD scenarios and limited training data. 
