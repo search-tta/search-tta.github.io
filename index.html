@@ -271,21 +271,16 @@
         <div class="column">
           <div class="content has-text-justified">
             <p class="is-size-6">
-                To perform <b>outdoor autonomous visual navigation and search</b>, a robot may leverage satellite imagery as a prior map.
-                This can help inform high-level search and exploration strategies, even when such images lack sufficient resolution to allow for visual recognition of targets.  
-                <!-- However, there are limited training datasets of satellite images with annotated targets that are not directly visible. -->
-                <!-- Furthermore, approaches which leverage large Vision Language Models (VLMs) for generalization may yield <b>inaccurate outputs due to hallucination</b>, leading to inefficient search. -->
-                However, approaches which leverage large Vision Language Models (VLMs) for generalization may yield <b>inaccurate outputs due to hallucination</b>, leading to inefficient search.
-                <!-- To address these challenges, -->
-                To address this challenge, we introduce <strong>Search-TTA</strong>, a multimodal test-time adaptation framework with a flexible plug-and-play interface <b>compatible with various input modalities (e.g. image, text, sound) and planning methods.</b>
-                First, we pretrain a satellite image encoder to align with CLIP's visual encoder to output probability distributions of target presence used for visual search.
-                <!-- Second, our framework dynamically refines CLIP’s predictions during search using a test-time adaptation mechanism. -->
-                <!-- Through a <b>novel feedback loop inspired by Spatial Poisson Point Processes</b>, uncertainty-weighted gradient updates are used to correct potentially inaccurate predictions and improve search performance. -->
-                Second, our framework dynamically refines CLIP’s predictions during search using a test-time adaptation mechanism that performs <b>uncertainty-weighted gradient updates online</b>. 
-                To train and evaluate Search-TTA, we curate <strong>AVS-Bench</strong>, a visual search dataset based on internet-scale ecological data that contains <b>380k images</b>. <!-- up to <b>380k training and 8k validation images</b> (in- and out- domain). -->
-                <!-- We find that Search-TTA <b>improves planner performance by up to 30.0%</b>, particularly in cases with poor initial CLIP predictions due to limited training data. -->
-                We find that Search-TTA <b>improves planner performance by up to 30.0%</b>, particularly in cases with poor initial CLIP predictions due to OOD scenarios and limited training data. 
-                It also <b>performs comparably with significantly larger VLMs</b>, and achieves <b>zero-shot generalization to unseen modalities</b>.
+                To perform <b></b>outdoor visual navigation and search</b>, a robot may leverage satellite imagery to generate visual priors.
+                This can help inform high-level search strategies, even when such images lack sufficient resolution for target recognition.
+                However, many existing informative path planning or search-based approaches either <b>assume no prior information</b>, or <b>use priors without accounting for their origins</b>. 
+                Recent work instead utilizes large Vision Language Models (VLMs) for generalizable priors, but their outputs can be <b>inaccurate due to hallucination</b>, leading to inefficient search.
+                To address these challenges, we introduce <strong>Search-TTA</strong>, a multimodal test-time adaptation framework with a flexible plug-and-play interface <b>compatible with various input modalities (e.g., image, text, sound) and planning methods (e.g., RL-based).</b>
+                First, we pretrain a satellite image encoder to align with CLIP’s visual encoder to output probability distributions of target presence used for visual search.
+                Second, our TTA framework dynamically refines CLIP’s predictions using <b>uncertainty-weighted gradient updates online</b> during search.
+                To train and evaluate Search-TTA, we curate <strong>AVS-Bench</strong>, a visual search dataset based on internet-scale ecological data containing <b>380k images and taxonomy data</b>.
+                We find that Search-TTA <b>improves planner performance by up to 30.0%</b>, particularly in cases with poor initial CLIP predictions due to domain mismatch and limited training data.
+                It also <b>performs comparably with significantly larger VLMs</b>, and achieves <b>zero-shot generalization via emergent alignment</b> to unseen modalities.
                 <!-- Finally, we deploy Search-TTA on a real UAV via hardware-in-the-loop testing, by simulating its operation within a large-scale simulation that provides onboard sensing. -->
             </p>
           </div>
