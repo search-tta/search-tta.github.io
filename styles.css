@@ -148,3 +148,15 @@ strong {
     width: 70%;
   }
 }
+
+.spotlight-iframe {
+  display: block;
+  width: 90%;
+  height: 200px;      /* mobile */
+  margin: 0 auto;     /* centers horizontally */
+}
+@media (min-width: 992px) {
+  .spotlight-iframe {
+    height: 487px;    /* or 487px if you prefer */
+  }
+}
