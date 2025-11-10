@@ -152,7 +152,7 @@ strong {
 .spotlight-iframe {
   display: block;
   width: 90%;
-  height: 200px;      /* mobile */
+  height: 180px;      /* mobile */
   margin: 0 auto;     /* centers horizontally */
 }
 @media (min-width: 992px) {
