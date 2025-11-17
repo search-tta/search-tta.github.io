@@ -4,12 +4,14 @@ This is the repository that contains source code for the [Search-TTA website](ht
 
 If you find Search-TTA useful for your work please cite:
 ```bibtex
-@inproceedings{tan2025searchtta
-  title        = {Search-TTA: A Multimodal Test-Time Adaptation Framework for Visual Search in the Wild},
-  author       = {Derek Ming Siang Tan, Shailesh, Boyang Liu, Alok Raj, Qi Xuan Ang, Weiheng Dai, Tanishq Duhan, Jimmy Chiun, Yuhong Cao, Florian Shkurti, Guillaume Sartoretti},
-  booktitle    = {Conference on Robot Learning},
-  year         = {2025},
-  organization = {PMLR}
+@inproceedings{tan2025searchtta,
+    title={Search-TTA: A Multi-Modal Test-Time Adaptation Framework for Visual Search in the Wild},
+    author={Tan, Derek Ming Siang and Shailesh, Shailesh and Liu, Boyang and Raj, Alok and Ang, Qi Xuan and Dai, Weiheng and Duhan, Tanishq and Chiun, Jimmy and Cao, Yuhong and Shkurti, Florian and Sartoretti, Guillaume Adrien},
+    booktitle={Proceedings of The 9th Conference on Robot Learning},
+    pages={2093--2120},
+    year={2025},
+    volume={305},
+    publisher={PMLR}
 }
 ```
 
