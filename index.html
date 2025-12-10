@@ -252,7 +252,7 @@
                 to achieve efficient visual navigation and search <i>in-the-wild</i>.
               </p>
               <p class="is-size-5">
-                <strong>AVS-Bench</strong> is a visual search dataset based on internet-scale ecological data that contains up to <b>380k diverse satellite images</b>,
+                <strong>AVS-Bench</strong> is a visual search dataset based on <b>internet-scale ecological data that contains up to 380k diverse satellite images</b>,
                  each with taxonomies and their corresponding locations, ground image, taxonomic label, and sound data.
               </p>
             </div>
@@ -262,6 +262,48 @@
     </div>
   </div>
 </section>
+
+
+<section class="section">
+  <div class="container is-max-desktop has-text-centered">
+    <h2 class="title is-2">Highlights</h2>
+    <div class="columns">
+      <div class="column">
+        <div class="content has-text-centered">
+          <p>
+            We validate <strong>Search-TTA</strong> on a wide variety of taxonomies, satellite images, and input modalities. See our interactive demo below! 
+          </p>
+        </div>
+
+        <div class="content has-text-justified" style="background-color: white;">
+          <h3>With Real UAV Dynamics</h3>
+          <video id="framework-video" autoplay muted loop controls playsinline height="100%" poster="./static/videos/bear_example_speed_8x_cover.webp">
+            <source src="./static/videos/bear_example_speed_8x.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+        <div class="content has-text-justified" style="background-color: white;">
+          <h3>Comparison without TTA</h3>
+          <video id="framework-video" autoplay muted loop controls playsinline height="100%" poster="./static/videos/marmot_example_speed_2x_cover.webp">
+            <source src="./static/videos/marmot_example_speed_2x.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+        <div class="content has-text-justified" style="background-color: white;">
+          <h3>Comparison with LISA</h3>
+          <video id="framework-video" autoplay muted loop controls playsinline height="100%" poster="./static/videos/lizard_example_speed_2x_cover.webp">
+            <source src="./static/videos/lizard_example_speed_2x.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 
 <section class="section">
   <div class="container is-max-desktop has-text-centered">
@@ -308,7 +350,7 @@
 
         <div class="content has-text-justified" style="background-color: white;">
           <h3>Search-TTA Framework</h3>
-          <video id="teaser" autoplay muted loop playsinline height="100%" preload="metadata"
+          <video id="teaser" autoplay muted loop controls playsinline height="100%" preload="metadata"
                 poster="./static/videos/search_tta_framework_v3_cover_frame.webp"
                 style="margin: 0px auto 0px auto; width: 95%; height: auto; display: block; background-color: white; transform: scaleX(1.002); transform-origin: center;">
             <source src="./static/videos/search_tta_framework_v3.mp4"
@@ -318,7 +360,7 @@
 
         <div class="content has-text-justified" style="background-color: white;">
           <h3>TTA Example</h3>
-          <video id="teaser" autoplay muted loop playsinline height="100%" preload="metadata"
+          <video id="teaser" autoplay muted loop controls playsinline height="100%" preload="metadata"
                 poster="./static/videos/search_tta_turtle_example_v3_cover_frame.webp"
                 style="margin: -15px auto -20px auto; width: 95%; height: auto; display: block; background-color: white; transform: scaleX(1.002); transform-origin: center;">
             <source src="./static/videos/search_tta_turtle_example_v3.mp4"
@@ -447,7 +489,8 @@
 </section>
 
 
-<section class="section">
+<!-- NOTE: Shifted up -->
+<!-- <section class="section">
   <div class="container is-max-desktop">
     <h2 class="title is-3">TTA Comparisons</h2>
     <div class="columns">
@@ -485,7 +528,7 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
 
 
 
