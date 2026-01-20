@@ -321,10 +321,11 @@
                 This can help inform high-level search strategies, even when such images lack sufficient resolution for target recognition.
                 However, many existing informative path planning or search-based approaches either <b>assume no prior information</b>, or <b>use priors without accounting for their origins</b>. 
                 Recent work instead utilizes large Vision Language Models (VLMs) for generalizable priors, but their outputs can be <b>inaccurate due to hallucination</b>, leading to inefficient search.
+                <br><br>
                 To address these challenges, we introduce <strong>Search-TTA</strong>, a multimodal test-time adaptation framework with a flexible plug-and-play interface <b>compatible with various input modalities (e.g., image, text, sound) and planning methods (e.g., RL-based).</b>
                 First, we pretrain a satellite image encoder to align with CLIP’s visual encoder to output probability distributions of target presence used for visual search.
                 Second, our TTA framework dynamically refines CLIP’s predictions using <b>uncertainty-weighted gradient updates online</b> during search.
-                To train and evaluate Search-TTA, we curate <strong>AVS-Bench</strong>, a visual search dataset based on internet-scale ecological data containing <b>380k images and taxonomy data</b>.
+                To train and evaluate Search-TTA, we curate <strong>AVS-Bench</strong>, a visual search dataset based on internet-scale ecological data containing 380k images and taxonomy data.
                 We find that Search-TTA <b>improves planner performance by up to 30.0%</b>, particularly in cases with poor initial CLIP predictions due to domain mismatch and limited training data.
                 It also <b>performs comparably with significantly larger VLMs</b>, and achieves <b>zero-shot generalization via emergent alignment</b> to unseen modalities.
                 <!-- Finally, we deploy Search-TTA on a real UAV via hardware-in-the-loop testing, by simulating its operation within a large-scale simulation that provides onboard sensing. -->
