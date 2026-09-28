@@ -160,3 +160,10 @@ strong {
     height: 487px;    /* or 487px if you prefer */
   }
 }
+
+@media (max-width: 768px) {
+  .tldr-text {
+    font-size: 1.15rem !important;
+    text-align: left !important;
+  }
+}
