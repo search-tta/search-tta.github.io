@@ -166,4 +166,8 @@ strong {
     font-size: 1.15rem !important;
     text-align: left !important;
   }
+
+  .mobile-left-text {
+    text-align: left !important;
+  }
 }
