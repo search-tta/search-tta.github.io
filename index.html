@@ -85,7 +85,10 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-2 publication-title">Search-TTA: A Multimodal Test-Time Adaptation Framework for Visual Search in the Wild</h1>
+          <div class="title-with-logo">
+            <img src="./static/images/search_tta_logo.webp" class="title-logo" alt="Search-TTA logo">
+            <h1 class="title is-2 publication-title">Search-TTA: A Multimodal Test-Time Adaptation Framework for Visual Search in the Wild</h1>
+          </div>
           <!-- <h2 class="title" style="font-size: large; color: grey;"></h2> -->
 
           <!-- <h2 class="title is-5 publlication-title">Conference on Robot Learning (CoRL 2025)</h2> -->
@@ -372,7 +375,7 @@
                     type="video/mp4">
           </video>
         </div>
-        <h2 class="subtitle has-text-centered">
+        <h2 class="subtitle has-text-centered mobile-small-caption">
           Search-TTA is agnostic to different robots (e.g. UAV / UGV / AUV) and planners (e.g. RL, Info Surfing). 
         </h2> 
       </div>
@@ -434,7 +437,7 @@
       </div>
     </div>
 
-    <h2 class="subtitle has-text-centered">
+    <h2 class="subtitle has-text-centered mobile-small-caption">
       AVS-Bench covers a diverse set of taxonomies across the world.
     </h2>
 
@@ -450,11 +453,11 @@
         <div class="columns">
           <div class="column is-half has-text-centered">
             <img src="./static/images/dataset_scaling_tta_gain_analysis.webp" style="width:100%;"/>
-            <p class="is-size-5"><b>TTA Performance Gain with Pretraining Data</b></p>
+            <p class="is-size-5 mobile-small-caption-blue"><b>Larger TTA Performance Gain with Less Pretraining Data</b></p>
           </div>
           <div class="column is-half has-text-centered">
             <img src="./static/images/time_analysis.webp" style="width:100%;"/>
-            <p class="is-size-5"><b>VLM Inference Time Analysis</b></p>
+            <p class="is-size-5 mobile-small-caption-blue"><b>High VLM Inference Speed Against VLM Baselines</b></p>
           </div>
         </div>
       <!-- </div> -->
@@ -474,16 +477,16 @@
             <!-- <p class="is-size-5"><b>Emergent Alignment to Unseen Modalities</b></p> -->
           </div>
         </div>
-        <p class="is-size-5 has-text-centered"><b>Emergent Alignment to Unseen Modalities</b></p>
+        <p class="is-size-5 has-text-centered mobile-small-caption-blue"><b>Emergent Alignment to Unseen Modalities</b></p>
       <!-- </div> -->
       <br><br><br>
       <!-- <div class="custom-grey-box" style="margin-bottom:2rem;"> -->
-        <h3 class="title is-4">Combating Hallucination</h3>
+        <h3 class="title is-4">Correcting Hallucination</h3>
         <div class="columns">
           <div class="columns">
             <div class="column has-text-centered">
               <img src="./static/images/TTA_diff_trendline_5percentile_384steps_OOD_New.webp" style="width:100%;"/>
-            <p class="is-size-5"><b>TTA Performance Gain with Extent of Hallucination</b></p>
+            <p class="is-size-5 mobile-small-caption-blue"><b>Largest TTA Performance Gain under Severe Hallucination</b></p>
             </div>
           </div>
         </div>
